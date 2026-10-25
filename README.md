@@ -8,4 +8,14 @@ Hier liegen die Spieldateien von **Günther die Gurke 2**, einem 2D-Actionspiel 
 
 Gespielt wird mit Gamepad oder Tastatur.
 
+## Mit Nix
+
+Unter Linux (x86_64) startet Nix die aktuelle Version direkt:
+
+```sh
+nix run github:ckesselh/guenther-die-gurke-2-download
+```
+
+Das Paket bringt einen Eintrag fürs Startmenü mit, der das Spiel im Vollbild startet. In einer eigenen Flake-Konfiguration: dieses Repo als Input eintragen und `overlays.default` einbinden, dann gibt es `pkgs.guenther-die-gurke-2` (das Spiel ist kostenlos, aber nicht quelloffen, darum braucht es `allowUnfree`).
+
 Teil 1, [Günther die Gurke](https://guenther-die-gurke.vercel.app), läuft im Browser.
