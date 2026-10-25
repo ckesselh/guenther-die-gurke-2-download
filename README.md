@@ -8,4 +8,4 @@ Hier liegen die Spieldateien von **Günther die Gurke 2**, einem 2D-Actionspiel 
 
 Gespielt wird mit Gamepad oder Tastatur.
 
-Teil 1, [Günther die Gurke](https://github.com/ckesselh/guenther-die-gurke), läuft im Browser.
+Teil 1, [Günther die Gurke](https://guenther-die-gurke.vercel.app), läuft im Browser.
