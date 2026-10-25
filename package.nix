@@ -11,11 +11,11 @@
 let
   pname = "guenther-die-gurke-2";
   # Bumped together with `hash` by the game's release script after each release.
-  version = "0.1.0";
+  version = "0.1.1";
 
   src = fetchurl {
     url = "https://github.com/ckesselh/guenther-die-gurke-2-download/releases/download/v${version}/GuentherDieGurke2-v${version}-linux-x86_64.AppImage";
-    hash = "sha256-GMA0wkNWnCKo14n21e3WM8StaI1dpLLv2hqLr3MPtIY=";
+    hash = "sha256-KZy6T6FpkiODALNi5QOa7371iaqeiTkdY76w5W6sxG4=";
   };
 
   # The AppImage's own icons (usr/share/icons/hicolor) go into the package.
