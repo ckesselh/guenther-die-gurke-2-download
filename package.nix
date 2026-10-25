@@ -19,7 +19,7 @@ let
   };
 
   # The AppImage's own icons (usr/share/icons/hicolor) go into the package.
-  contents = appimageTools.extractType2 { inherit pname version src; };
+  contents = appimageTools.extract { inherit pname version src; };
 
   # Started from the app launcher: fullscreen, native Wayland (Godot falls back to X11 without it).
   desktopItem = makeDesktopItem {
