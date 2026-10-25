@@ -46,6 +46,13 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
 
+  # On a Wayland compositor without server-side decorations (no xdg-decoration), Godot draws its
+  # window frame through libdecor, and a libdecor plugin from the FHS environment hangs the game
+  # before the first scene. The game runs fullscreen and needs no frame, so libdecor gets no plugins.
+  profile = ''
+    export LIBDECOR_PLUGIN_DIR=/var/empty
+  '';
+
   extraInstallCommands = ''
     install -Dm444 ${desktopItem}/share/applications/${pname}.desktop -t $out/share/applications
     mkdir -p $out/share
