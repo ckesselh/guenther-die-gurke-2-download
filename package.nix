@@ -8,14 +8,15 @@
 # Günther die Gurke 2: the released Linux build (the AppImage from this repo's releases), wrapped
 # for NixOS. The AppImage bundles the game, the .NET runtime and ICU; appimageTools' default FHS
 # environment brings Vulkan, Wayland/X11, PulseAudio/PipeWire and udev (gamepads).
+# The Mac app is package-darwin.nix.
 let
   pname = "guenther-die-gurke-2";
-  # Bumped together with `hash` by the game's release script after each release.
-  version = "0.1.1";
+  release = import ./release.nix;
+  inherit (release) version;
 
   src = fetchurl {
     url = "https://github.com/ckesselh/guenther-die-gurke-2-download/releases/download/v${version}/GuentherDieGurke2-v${version}-linux-x86_64.AppImage";
-    hash = "sha256-KZy6T6FpkiODALNi5QOa7371iaqeiTkdY76w5W6sxG4=";
+    hash = release.hashes.linux;
   };
 
   # The AppImage's own icons (usr/share/icons/hicolor) go into the package.
