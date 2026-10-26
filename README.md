@@ -8,6 +8,22 @@ Hier liegen die Spieldateien von **Günther die Gurke 2**, einem 2D-Actionspiel 
 
 Gespielt wird mit Gamepad oder Tastatur.
 
+## Mit Homebrew
+
+Auf einem Mac mit Apple Silicon (ab macOS 13) installiert Homebrew das Spiel in „Programme“:
+
+```sh
+brew install --cask ckesselh/tap/guenther-die-gurke-2
+```
+
+Neue Versionen holt `brew upgrade`. Beim ersten Start und nach jedem Update hält macOS die App an, weil sie nicht von Apple geprüft ist: die Meldung schließen, dann Systemeinstellungen → Datenschutz & Sicherheit → „Dennoch öffnen“ und mit dem Passwort bestätigen. Unter macOS 14 reicht ein Rechtsklick auf die App → „Öffnen“. Alternativ im Terminal (hebt die Sperre nur für diese App auf):
+
+```sh
+xattr -dr com.apple.quarantine "/Applications/Günther die Gurke 2.app"
+```
+
+`brew uninstall --cask guenther-die-gurke-2` entfernt das Spiel wieder, mit `--zap` auch die Daten, die es ablegt. Der Cask liegt in [ckesselh/homebrew-tap](https://github.com/ckesselh/homebrew-tap).
+
 ## Mit Nix
 
 Unter Linux (x86_64) startet Nix die aktuelle Version direkt:
