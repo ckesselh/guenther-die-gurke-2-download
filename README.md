@@ -16,11 +16,7 @@ Auf einem Mac mit Apple Silicon (ab macOS 13) installiert Homebrew das Spiel in 
 brew install --cask ckesselh/tap/guenther-die-gurke-2
 ```
 
-Neue Versionen holt `brew upgrade`. Beim ersten Start und nach jedem Update hält macOS die App an, weil sie nicht von Apple geprüft ist: die Meldung schließen, dann Systemeinstellungen → Datenschutz & Sicherheit → „Dennoch öffnen“ und mit dem Passwort bestätigen. Unter macOS 14 reicht ein Rechtsklick auf die App → „Öffnen“. Alternativ im Terminal (hebt die Sperre nur für diese App auf):
-
-```sh
-xattr -dr com.apple.quarantine "/Applications/Günther die Gurke 2.app"
-```
+Neue Versionen holt `brew upgrade`. Die App ist nicht von Apple notarisiert. Damit sie ohne Freigabe in den Systemeinstellungen startet, entfernt der Cask nach Installation und Update die Quarantäne-Markierung von macOS, nur für diese App. Das ist nicht der von Homebrew empfohlene Weg. Wer das nicht möchte, lädt das Disk-Image direkt herunter und gibt die App beim ersten Start frei (Systemeinstellungen → Datenschutz & Sicherheit → „Dennoch öffnen“).
 
 `brew uninstall --cask guenther-die-gurke-2` entfernt das Spiel wieder, mit `--zap` auch die Daten, die es ablegt. Der Cask liegt in [ckesselh/homebrew-tap](https://github.com/ckesselh/homebrew-tap).
 
