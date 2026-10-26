@@ -22,12 +22,19 @@ Neue Versionen holt `brew upgrade`. Die App ist nicht von Apple notarisiert. Dam
 
 ## Mit Nix
 
-Unter Linux (x86_64) startet Nix die aktuelle Version direkt:
+Unter Linux (x86_64) und auf einem Mac mit Apple Silicon (ab macOS 13) startet Nix die aktuelle Version direkt:
 
 ```sh
 nix run github:ckesselh/guenther-die-gurke-2-download
 ```
 
-Das Paket bringt einen Eintrag fürs Startmenü mit, der das Spiel im Vollbild startet. In einer eigenen Flake-Konfiguration: dieses Repo als Input eintragen und `overlays.default` einbinden, dann gibt es `pkgs.guenther-die-gurke-2` (das Spiel ist kostenlos, aber nicht quelloffen, darum braucht es `allowUnfree`).
+Beim ersten Start lädt Nix das Spiel herunter, rund 1 GB.
+
+- **Linux:** Das Paket bringt einen Eintrag fürs Startmenü mit, der das Spiel im Vollbild startet.
+- **macOS:** Nix lädt das Disk-Image selbst herunter und übernimmt die App unverändert daraus. Weil sie nicht über den Browser kommt, trägt sie keine Quarantäne-Markierung, und macOS startet sie ohne Freigabe in den Systemeinstellungen.
+
+Fest installieren: `nix profile add github:ckesselh/guenther-die-gurke-2-download` (bei älteren Nix-Versionen `nix profile install`), neue Versionen holt `nix profile upgrade --all`. Auf dem Mac liegt die App dann unter `~/.nix-profile/Applications` und startet von dort im Finder per Doppelklick. In „Programme“, und damit auch ins Launchpad und in die Spotlight-Suche, bringen sie home-manager (`home.packages`, nach `~/Applications/Home Manager Apps`) und nix-darwin (`environment.systemPackages`, nach `/Applications/Nix Apps`).
+
+In einer eigenen Flake-Konfiguration: dieses Repo als Input eintragen und `overlays.default` einbinden, dann gibt es `pkgs.guenther-die-gurke-2`, unter Linux wie auf dem Mac (das Spiel ist kostenlos, aber nicht quelloffen, darum braucht es `allowUnfree`).
 
 Teil 1, [Günther die Gurke](https://guenther-die-gurke.vercel.app), läuft im Browser.
