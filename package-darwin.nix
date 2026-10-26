@@ -6,11 +6,12 @@
   runtimeShell,
 }:
 
-# Günther die Gurke 2 for Macs with Apple Silicon (macOS 13 or newer): the app from the disk image
-# in this repo's releases, as released. The app is signed ad hoc, and its signature seals every
-# file in the bundle, so the package copies it unchanged: no fixup, which would strip and re-sign
-# the Mach-O files. Nix downloads the disk image itself, so the app has no quarantine attribute
-# and macOS starts it without asking for approval in System Settings.
+# Günther die Gurke 2 for Macs with Apple Silicon (macOS 14 or newer: nixpkgs' minimum; the app
+# itself runs from macOS 13): the app from the disk image in this repo's releases, as released.
+# The app is signed ad hoc, and its signature seals every file in the bundle, so the package
+# copies it unchanged: no fixup, which would strip and re-sign the Mach-O files. Nix downloads
+# the disk image itself, so the app has no quarantine attribute and macOS starts it without
+# asking for approval in System Settings.
 let
   pname = "guenther-die-gurke-2";
   release = import ./release.nix;
