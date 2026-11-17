@@ -1,11 +1,11 @@
 # The release both packages are built from. The game's release script bumps the version and the
 # two hashes after each release (fetchurl checks the flat sha256 of each file).
 {
-  version = "0.3.1";
+  version = "0.4.0";
   hashes = {
     # GuentherDieGurke2-v<version>-linux-x86_64.AppImage
-    linux = "sha256-1UPl5P42Kcjn1dWvUdrxrRHkQHNgWZyEc8U0xNg1Iwk=";
+    linux = "sha256-XKJ83lkA4BzPIUTdXIJtlKGpuZMMjynrbkfmTH3vE4I=";
     # GuentherDieGurke2-v<version>-macos.dmg
-    darwin = "sha256-XfnKlNE2I7Qc7Q/R1ydDpUNyUKSjCpyw5RIWsYkh5/s=";
+    darwin = "sha256-HIHvGmP3ySFVPIWqJ9fsCXa20uQgoog4M2Sh+mgp1zA=";
   };
 }
